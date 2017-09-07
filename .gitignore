@@ -1,0 +1,4 @@
+.awcache
+.vscode
+dist
+node_modules
