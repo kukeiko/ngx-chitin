@@ -1,0 +1,91 @@
+@import "./_vars.scss";
+
+@mixin button-fill {
+    background-color: #666;
+    color: #EFEFEF;
+
+    &.success {
+        color: #EFEFEF;
+        background-color: #5BB527;
+    }
+    
+    &.info {
+        color: #EFEFEF;
+        background-color: #5BAAFF;
+    }
+
+    &.warning {
+        color: #EFEFEF;
+        background-color: #FFAB3D;
+    }
+
+    &.danger {
+        color: #EFEFEF;
+        background-color: #FF5956;
+    }
+}
+
+.button {
+    cursor: pointer;
+    user-select: none;
+    box-sizing: border-box;
+    border: 0.125rem solid;
+
+    opacity: 0.8;
+    &:hover { opacity: 1; }
+
+    &:not(.hollow) {
+        @include button-fill();
+    }
+    
+    color: #666;
+    border-color: #666;
+
+    &.success {
+        color: #5BB527;
+        border-color: #5BB527;
+    }
+
+    &.info {
+        color: #5BAAFF;
+        border-color: #5BAAFF;
+    }
+
+    &.warning {
+        color: #FFAB3D;
+        border-color: #FFAB3D;
+    }
+
+    &.danger {
+        color: #FF5956; 
+        border-color: #FF5956;
+    }
+}
+
+button.button {
+    padding: 0.3em 1em 0.3em 1em;
+    
+    font-size: 1em;
+    font-weight: bold;
+    outline: 0;
+}
+
+a.button {
+    padding: 0.1em 0.5em 0.1em 0.5em;
+    font-weight: bold;
+}
+
+div.button {
+
+    // box-shadow: 0 0 0.25em 0.05em #c4c4c4;
+}
+
+input.button {
+    outline: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    &.button {
+        // border: initial;
+    }
+}

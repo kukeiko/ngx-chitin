@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 
-import "./styles/sandbox.scss";
+import "./styles";
 
 @Component({
     selector: "app",
