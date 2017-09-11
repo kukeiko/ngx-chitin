@@ -1,45 +1,87 @@
 @import "./_vars.scss";
 
-@mixin button-fill {
-    background-color: #666;
-    color: #EFEFEF;
+$border-width: 0.0625em;
+$v-padding: 0.3em;
+$h-padding: 1em;
+
+@mixin btn-outline {
+    border-color: #000;
+
+    &.neutral {
+        border-color: #666;
+    }
 
     &.success {
-        color: #EFEFEF;
+        border-color: #5BB527;
+    }
+
+    &.info {
+        border-color: #5BAAFF;
+    }
+
+    &.note {
+        border-color: #dac619;
+    }
+
+    &.warning {
+        border-color: #FFAB3D;
+    }
+
+    &.danger {
+        border-color: #FF5956; 
+    }
+}
+
+@mixin btn-fill {
+    background-color: #000;
+    color: #fff;
+
+    &.neutral {
+        background-color: #666;
+    }
+
+    &.success {
         background-color: #5BB527;
     }
     
     &.info {
-        color: #EFEFEF;
         background-color: #5BAAFF;
     }
 
+    &.note {
+        background-color: #dac619;
+    }
+
     &.warning {
-        color: #EFEFEF;
         background-color: #FFAB3D;
     }
 
     &.danger {
-        color: #EFEFEF;
         background-color: #FF5956;
     }
 }
 
-.button {
-    cursor: pointer;
-    user-select: none;
+.btn {
+    position: relative;
+    display: inline-flex;
     box-sizing: border-box;
-    border: 0.125rem solid;
+    user-select: none;
+
+    cursor: pointer;
+    border: $border-width solid;
+    font-size: 1em;
+    padding: $v-padding $h-padding;
+    text-decoration: none;
+
+    color: #000;
+    border-color: #000;
 
     opacity: 0.8;
-    &:hover { opacity: 1; }
 
-    &:not(.hollow) {
-        @include button-fill();
+    &.neutral {
+        color: #666;
+        border-color: #666;
     }
-    
-    color: #666;
-    border-color: #666;
 
     &.success {
         color: #5BB527;
@@ -51,6 +93,11 @@
         border-color: #5BAAFF;
     }
 
+    &.note {
+        color: #dac619;
+        border-color: #dac619;
+    }
+
     &.warning {
         color: #FFAB3D;
         border-color: #FFAB3D;
@@ -58,34 +105,81 @@
 
     &.danger {
         color: #FF5956; 
-        border-color: #FF5956;
+        border-color: #FF5956; 
+    }
+
+    &.fill {
+        @include btn-fill();
+    }
+
+    &.naked {
+        border-color: transparent;
+    }
+
+    &.bold {
+        font-weight: bold;
+        border-width: $border-width * 2;
+        padding: $v-padding - $border-width $h-padding - $border-width;
     }
 }
 
-button.button {
-    padding: 0.3em 1em 0.3em 1em;
+.lb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+
+    border-left-width: inherit;
+    border-left-style: solid;
+    border-left-color: currentColor;
+}
+
+// &.pipes {
+    
+// }
+
+// &.tunnel {
+
+// }
+
+// &.platform {
+
+// }
+
+// &.ceiling {
+    
+// }
+button.btn {
+    &:hover:not(:disabled) {
+        opacity: 1;
+    }
+
+    &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
     
     font-size: 1em;
-    font-weight: bold;
+    // font-weight: bold;
     outline: 0;
 }
 
-a.button {
-    padding: 0.1em 0.5em 0.1em 0.5em;
-    font-weight: bold;
+a.btn {
+    // padding: 0.1em 0.5em 0.1em 0.5em;
+    // font-weight: bold;
 }
 
-div.button {
+div.btn {
 
     // box-shadow: 0 0 0.25em 0.05em #c4c4c4;
 }
 
-input.button {
+input.btn {
     outline: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    &.button {
+    &.btn {
         // border: initial;
     }
 }
